@@ -1,25 +1,19 @@
 # Biofouling Record Book (BFRB)
-*Official Chronological Log matching IMO MEPC.378(80) Appendix 2 Layout*
+*Official Living Ledger Imported from Vessel Master Spreadsheet*
 
-This ledger acts as a permanent compliance verification record. Every modification corresponds directly to a unique, timestamped GitHub commit hash.
+The following ledger displays real-time logging data synchronized directly from the ship's operational Excel matrix (`_data/bfrb_data.csv`).
+
+| Date | Location | Activity | Rating | Sign-Off |
+| :--- | :--- | :--- | :--- | :--- |
+{% for row in site.data.bfrb_data %}| {{ row.Date }} | {{ row.Port_Location }} | {{ row.Activity_Type }} | **{{ row.Fouling_Rating }}** | {{ row.Logging_Officer }} |
+{% endfor %}
 
 ---
-
-## 📅 Operational Log Ledger (2026)
-
-### 📝 Entry 2026-07-17 | Scheduled Hull Inspection
-* **Activity Type:** Periodic Visual Hull & Niche Area Survey.
-* **Method:** Underwater Remote Operated Vehicle (ROV) Deployment.
-* **Location / Port:** Port of Los Angeles, Berth 93.
-* **Observed Fouling Rating (FR):** **FR 0** (No visible macro-fouling; thin biofilm layer only).
-* **Action Taken:** None required. Shipsonic system running smoothly.
-* **Logging Officer:** Chief Officer M. Jansen.
-
-### 🔧 Entry 2026-05-10 | Hardware Diagnostic Check
-* **Activity Type:** Regular Shipsonic System Health Assessment.
-* **Transducer Status:** Checked channels 1 through 8. All transducer impedances measure within design tolerances.
-* **Power Draw:** Confirmed stable power delivery across all structural wave-guides.
-* **Logging Officer:** Chief Engineer K. Tanaka.
+## 🔄 Excel Workflow for the Crew
+1. Open the vessel's master logging spreadsheet in Microsoft Excel.
+2. Add any new inspection or hardware checks to the bottom row.
+3. Save the file as a **CSV (Comma Delimited)** named `bfrb_data.csv`.
+4. Upload and replace the file directly inside the `_data/` folder on GitHub.
 
 ---
 [← Return to Dashboard](/)
